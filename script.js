@@ -1,210 +1,252 @@
 
+// ---------------import lenis--------------------
+const lenis = new Lenis()
 
-// const lenis = new Lenis()
-
-// lenis.on('scroll', (e) => {
-//   console.log(e)
-// })
-
-// function raf(time) {
-//   lenis.raf(time)
-//   requestAnimationFrame(raf)
-// }
-
-// requestAnimationFrame(raf)
-
-
-
-
-
-
-
-
-var tl = gsap.timeline();
-
-
-tl.from(".loader h2",{
-  x:80,
-  opacity:0,
-  duration:1,
-  stagger:.1,
+lenis.on('scroll', (e) => {
+  console.log(e)
 })
 
-tl.to(".loader h2",{
-    x:-100,
-    opacity:0,
-    stagger:.1,
-    duration:1,
-  
-})
-
-
-
-tl.to(".loader",{
-    opacity:0,
-    duration:1,
-    delay:.5,
-    display:"none"
-})
-
-tl.from(".page1-content h1 ",{
-    y:100,
-    opacity:0,
-    duration:1,
-    stagger:.1
-  
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function heading(){
-    let h1 = document.querySelector(".page1-content h1");
-let head = h1.textContent;
-let splitheading = head.split("")
-let clutter = "";
-
-
-splitheading.forEach((item) => {
-    clutter += `<span>${item}</span>`
-})
-
-h1.innerHTML = clutter;
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
 }
-heading()
+
+requestAnimationFrame(raf)
+
+
+
+
+
+
+
+let page2 = document.querySelector("#page2");
 let cursor = document.querySelector(".cursor");
-function cursroEffect(){
-    let pageContnt = document.querySelector(".page1-content");
-    
-    pageContnt.addEventListener("mousemove",function(dets){
-        cursor.style.backgroundColor = "orange"
-        gsap.to(".cursor",{
-            x:dets.x,
-            y:dets.y,
-            
-        })
-    })
-    
-    pageContnt.addEventListener("mouseenter",function(){
-        gsap.to(cursor,{
-            scale:1,
-            opacity:1
-        })
-    })
-    pageContnt.addEventListener("mouseleave",function(){
-        gsap.to(cursor,{
-            scale:0,
-            opacity:0
-        })
-    })
-}
-cursroEffect();
 
-gsap.to("hr",{
-    duration:1,
-    width:"100%",
-    scrollTrigger:{
-        trigger:"#page2",
-        scroller:"body",
-        start:"top 60%",
-        end:"top 30%",
-        scrub:2
-    }
-})
-function page2Animation (){
-    gsap.from(".elem h1 ",{
-        y:120,
-        stagger:1,
-        duration:1.5,
-        opacity:0,
-        ease:"none",
-        scrollTrigger:{
-            trigger:"#page2",
-            scroller:"body",
-            start:"top 40%",
-            end:"top 40%",
-            scrub:2
-        }
-    })
-}
-
-page2Animation()
-
-
-gsap.from(".elem p",{
-    y:"500px",
-    duration:1,
-    opacity:0,
-    scrollTrigger:{
-        trigger:".page2",
-        scroller:"body",
-        start:"100% 60%",
-        end:"100% 60%",
-   
-        scrub:2
-    }
-})
-
-let page4  = document.querySelector("#page4").addEventListener("mousemove",function(dets){
-    // cursor.style.backgroundColor = "white",
+page2.addEventListener("mousemove",function(dets){
     gsap.to(cursor,{
-        scale:1.3,
-        opacity:.8,
+        ease:"none",
         x:dets.x,
         y:dets.y
     })
 })
 
-page4.addEventListener("mouseenter",function(){
+page2.addEventListener("mouseenter",function(){
+    gsap.to(cursor,{
+        scale:1.5,
+        opacity:.8
+    })
+})
+page2.addEventListener("mouseleave",function(){
     gsap.to(cursor,{
         scale:1,
-        opacity:1,
-    })
-})
-
-page4.addEventListener("mouseleave",function(){
-  
-    gsap.to(cursor,{
-        scale:0,
         opacity:0,
-
     })
+})
+
+
+let cursor2  =  document.querySelector("#cusrsor")
+window.addEventListener("mousemove",function(detials){
+
+gsap.to(cursor2,{
+    x:detials.x,
+    y:detials.y,
+    ease:"none"
+})
+
+
+})
+
+let tl2 = gsap.timeline();
+
+
+tl2.from(".heading span h1",{
+    y:250,
+    duration:1,
+    stagger:.1
 })
 
 
 
 
+// let page3 = document.querySelector("#page3");
+window.addEventListener("wheel",function(event){
+
+if(event.deltaY > 0){
+  gsap.to(".products-1  .pro-contains",{
+        y:130,
+        duration:2,
+        delay:1,
+        scrollTrigger:{
+            trigger:"#page3",
+            scroller:"body",
+            start:"top 30%",
+            end:"top 10%",
+            scrub:1
+        }
+    })
+
+}
+if(event.deltaY < 0){
+    gsap.to(".products-1 .pro-contains",{
+        y:-150,
+        duration:2,
+        delay:1,
+        scrollTrigger:{
+            trigger:"#page3",
+            scroller:"body",
+            start:"top 20%",
+            end:"top 0%",
+            scrub:1
+        }
+    })
+}
+  
+})
+
+
+
+window.addEventListener("wheel",function(event){
+
+    if(event.deltaY > 0){
+      gsap.to(".products-2  .pro-contains",{
+            y:130,
+            duration:2,
+            delay:1,
+            scrollTrigger:{
+                trigger:"#page3",
+                scroller:"body",
+                start:"top 30%",
+                end:"top 10%",
+                scrub:1
+            }
+        })
+    
+    }
+    if(event.deltaY < 0){
+        gsap.to(".products-2 .pro-contains",{
+            y:-150,
+            duration:2,
+            delay:1,
+            scrollTrigger:{
+                trigger:"#page3",
+                scroller:"body",
+                start:"top 20%",
+                end:"top 0%",
+                scrub:1
+            }
+        })
+    }
+      
+    })
+
+    window.addEventListener("wheel",function(event){
+
+        if(event.deltaY > 0){
+          gsap.to(".products-3  .pro-contains",{
+                y:130,
+                duration:2,
+                delay:1,
+                scrollTrigger:{
+                    trigger:"#page3",
+                    scroller:"body",
+                    start:"top 30%",
+                    end:"top 10%",
+                    scrub:1
+                }
+            })
+        
+        }
+        if(event.deltaY < 0){
+            gsap.to(".products-3 .pro-contains",{
+                y:-150,
+                duration:2,
+                delay:1,
+                scrollTrigger:{
+                    trigger:"#page3",
+                    scroller:"body",
+                    start:"top 20%",
+                    end:"top 0%",
+                    scrub:1
+                }
+            })
+        }
+          
+        })
 
 
 
 
 
+let tl3 = gsap.timeline({
+    scrollTrigger:{
+        trigger:"#page3",
+        scroller:"body",
+        start:"top 30%",
+        end:"top 10%"
+    }
+});
+
+tl3.from(".page3-products .products-1",{
+    opacity:0,
+
+})
+
+tl3.from(".page3-products .products-2",{
+    opacity:0,
+})
+
+tl3.from(".page3-products .products-3",{
+    opacity:0,
+})
 
 
-// var swiper = new swiper(".mySwiper", {
-//     spaceBetween: 30,
-//     centeredSlides: true,
-//     autoplay: {
-//       delay: 2500,
-//       disableOnInteraction: false,
-//     },
-//     pagination: {
-//       el: ".swiper-pagination",
-//       clickable: true,
-//     },
-//     navigation: {
-//       nextEl: ".swiper-button-next",
-//       prevEl: ".swiper-button-prev",
-//     },
-//   });
+
+let tl4 = gsap.timeline({
+    scrollTrigger:{
+        trigger:"#page5",
+        scroller:"body",
+        start:"top 30%",
+        end:"top 10%",
+    }
+});
+
+tl4.from("#page5 .page5-left",{
+    opacity:0,
+
+})
+
+tl4.from("#page5 .page5-right",{
+    opacity:0,
+})
+
+
+
+let page5 = document.querySelector("#page5");
+
+page5.addEventListener("mousemove",function(e){
+    cursor.style.backgroundColor = "white"
+    gsap.to(cursor,{
+        x:e.x,
+        y:e.y,
+    })
+})
+
+page5.addEventListener("mouseenter",function(e){
+    cursor2.style.display = "none",
+    cursor.style.backgroundColor = "white"
+    gsap.to(cursor,{
+        scale:8,
+        ease:"none"
+    })
+})
+
+page5.addEventListener("mouseleave",function(e){
+    cursor2.style.display = "block",
+    cursor.style.backgroundColor = "white"
+    gsap.to(cursor,{
+  scale:1,
+  opacity:0
+    })
+})
+
 

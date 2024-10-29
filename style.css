@@ -1,282 +1,470 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+  font-family: rejoy;
+  src: url(./images/Futura-Bold.ttf);
+}
 
 @font-face {
-    font-family: rejoy;
-    src: url(./images/fonst2.ttf);
+  font-family: rejoy2;
+  src: url(./images/ABCSocialMono-Regular.ttf);
 }
 
-
-
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.main{
-    width: 100%;
-    height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
-html,body{
-    width: 100%;
-    height: 100%;
+body {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #F7F7F7;
+  z-index: -1;
 }
-body{
-    position: relative;
-    overflow-x: hidden;
+#cusrsor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  z-index: -1;
 }
-/* .main{
-    width: 100%;
-    height: 100%;
-    position: relative;
-} */
-#page1{
-    width: 100%;
-    height: 100vh;
-    background-color: #dedede;
-    position: relative;
-}
-.cursor{
-    width: 7.5vw;
-    height: 7.5vw;
-    background-color: #FA4F10;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9;
-    border-radius: 50%;
-}
-.cursor h5{
-    font-size: 18px;
-    font-weight: 500;
-}
-#page1 video{
-    width: 100%;
-    height: 100%;
-    object-fit:cover;
-    position: absolute;
-}
-.page1-content{
-    width: 100%;
-    height: 100%;
-    /* background-color: rgb(0, 0, 0); */
-    position: relative;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #fff;
-    padding-left: 2vw;
-}
-.page1-content h1{
-    font-family: rejoy;
-    /* margin-bottom: 3vw; */
-    font-size: 26vw;
-    line-height: 27vw;
-    font-weight: 100;
-}
-.page1-content h1 span{
-    font-family: rejoy;
-    font-weight: 200;
-}
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    /* background-color: red; */
-    padding: 2vw 3vw;
-}
-nav h4{
-    margin-right: 100px;
-    font-size: 1.6vw;
-    font-weight: 500;
-}
-nav h3{
-    font-size: 1.6vw;
-    font-weight: bold;
-}
-#page2{
-    width: 100%;
-    height: 100vh;
-    padding: 60px 40px;
-}
-#page2 .elem p{
-    font-size: 25px;
-    font-weight: 500;
-    opacity: 0.8;
-    margin-bottom: 4rem;
-}
-#page2 .elem h1{
-    font-size: 4.8vw;
-    font-weight: 500;
-   line-height: 1;
-   margin-top: 20px;
-   overflow: hidden;
+header {
+  width: 100%;
+  height: 30vh;
+  z-index: 99;
 }
 
-#page2 hr{
-    width: 0;
+nav {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  justify-content: space-between;
+  position: fixed;
+  top: 20px;
 }
-#page3{
-    width: 100%;
-    max-height: 100vh;
-    margin-block: 200px;
+nav .logo h3 {
+  font-size: 3vw;
+  line-height: 1;
+  padding-left: 40px;
+  font-family: rejoy;
+  mix-blend-mode: difference;
 }
-#page3 .page3-top{
-    width: 100%;
-    text-align: center;
-}
-
-.page3-top h4{
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-block: 15px;
-}
-.page3-top h4 span{
-    font-size: .75rem;
-    background-color: #000;
-    color: #fff;
-    padding: 5px 12px;
-    border-radius: 2rem;
-}
-.page3-top h2{
-    font-size: 60px;
-    font-weight: 500;
-    line-height: 1;
-    margin-block: 20px;
-    cursor: pointer;
-}
-.page3-elements{
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    margin-top: 50px;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+  padding-right: 40px;
+  font-family: rejoy2;
 }
 
-.page3-elements .box{
-    width: 30%;
-    height: 100%;
-    margin: 0px auto;
-    cursor: pointer;
-    position: relative;
+nav ul li:last-child a {
+  width: 200px;
+  padding: 10px 20px;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  justify-content: space-between;
 }
-.page3-elements .box video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+nav ul li a:last-child i {
+  font-size: 1.5rem;
 }
-.box img{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transition: all ease .5s;
-    cursor: pointer;
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #000;
+  font-weight: 200;
+  transition: all 0.4s;
+  mix-blend-mode: difference;
 }
-.page3-elements .box:hover img{
-    opacity: 0;
+
+nav ul li a:hover {
+  border-bottom: 2px solid black;
+  opacity: 0.8;
 }
-.elem2{
-    width: 100%;
-    height: 100%;
-    position: relative;
+
+/* ----------------------------------------------------page1------------------------- */
+
+#page1 {
+  width: 100%;
+  height: 70vh;
 }
-.elem span{
-  position: absolute;
+#page1 .heading {
+  width: 100%;
+  height: 100%;
+}
+#page1 .heading span {
   width: 100%;
   height: 200px;
+  display: inline-block;
   overflow: hidden;
+  z-index: 2;
 }
 
+#page1 .heading h1 {
+  font-size: 15vw;
+  font-family: rejoy;
+  line-height: 1;
+}
+
+/* ----------------------------------------------------page1 end------------------------- */
+
+/* ----------------------------------------------------page2------------------------- */
+
+#page2 {
+  width: 100%;
+  height: 90vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  position: relative;
+}
+
+#page2 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#page2 .cursor {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+}
+.cursor p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+}
+/* ----------------------------------------------------page2 end------------------------- */
+
+/* ----------------------------------------------------page3 ------------------------- */
+#page3 {
+  width: 100%;
+  height: 100vh;
+}
+
+#page3 .page3-top {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  padding: 0px 30px;
+  border-bottom: 2px solid black;
+}
+.page3-top p {
+  font-size: 2vw;
+  font-weight: 500;
+  font-family: rejoy2;
+  margin-top: 65px;
+}
+#page3 .page3-products {
+  width: 100%;
+  height: 90vh;
+  margin-top: 30px;
+  padding: 0px 30px;
+  display: flex;
+  gap: 20px;
+}
+.page3-products .products-1,
+.products-2,
+.products-3 {
+  width: 30%;
+  height: 600px;
+  position: relative;
+}
+.page3-products .products-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.page3-products .products-2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+.page3-products .products-3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+.page3-products .products-1 .pro-contains {
+  width: 300px;
+  border-radius: 2rem;
+  background-color:#FFF6DE;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.page3-products .products-2 .pro-contains {
+  width: 300px;
+  border-radius: 2rem;
+  background-color:#FFFFFF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.page3-products .products-3 .pro-contains {
+  width: 300px;
+  border-radius: 2rem;
+  background-color: #E2DF9A;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.page3-products .products-1 .pro-contains h1 {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: rejoy2;
+}
+.page3-products .products-2 .pro-contains h1 {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: rejoy2;
+}
+.page3-products .products-3 .pro-contains h1 {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: rejoy2;
+}
+
+/* ----------------------------------------------------page3 end------------------------- */
+
+
+
+
+
+
+/* ----------------------------------------------------page4------------------------- */
 #page4{
     width: 100%;
     height: 100vh;
+    margin-top: 180px;
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 40px;
+    gap: 10px;
 }
-#page4 video{
-    height: 100%;
+.page4-left {
+  width: 70%;
 }
-#page4 svg{
-    position: absolute;
-    height: 60%;
+.page4-left h5{
+  font-size: 5vw;
+  font-weight: 500;
+  font-family: rejoy;
+  line-height: 1;
+  word-spacing: 1px;
 }
+.page4-right{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page4-right  p{
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-family: rejoy2;
+  
+}
+.page4-right a{
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: rejoy2;
+  border-bottom: 2px solid black;
+  width: fit-content;
+  color: #fff;
+  background-color: black;
+  border-radius: 3px;
+}
+/* ----------------------------------------------------page4 end------------------------- */
+/* ----------------------------------------------------page5------------------------- */
 
 #page5{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-.page5-top{
-    width: 100%;
-    height: 100%;
-}
-.page5-top h1{
-    font-size: 10vw;
-    width: 96%;
-    margin-left: 2%;
-    border-bottom: 4px solid black;
-}
-.page5-top .swiperdiv{
-    width: 100%;
-    height: 60vh;
-    position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 100px;
 }
 
 
-.swiper {
-    width: 100%;
-    margin-top: 20px;
-    height: 100%;
-  }
+#page5 .page5-left{
+  width: 500px;
+  height: 100%;
+}
+.page5-left img{
+  width: 100%;
+  height: 80%;
+  object-fit:cover;
+  background-position: center;
+  background-size: cover;
+}
+#page5 .page5-right{
+  width: 500px;
+  height: 100%;
+}
 
-  .swiper-slide {
-    width: 400px !important;
-    text-align: center;
-    font-size: 18px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    display: flex;
-    margin-left: 10px;
-    overflow: hidden;
-  }
+.page5-right img{
+  width: 100%;
+  height: 80%;
+  object-fit:cover;
+  background-position: center;
+  background-size: cover;
+}
+.page5-left,.page5-right p{
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: rejoy2;
+  text-align: center;
+  margin-top: 50px;
+}
+/* ----------------------------------------------------page5 end------------------------- */
+/* ----------------------------------------------------page6------------------------- */
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all .4s ease;
-    filter: grayscale(1);
-    cursor: pointer;
-  }
-  .swiper-slide img:hover{
-    transform: scale(1.5);
-    filter: grayscale(0);
-  }
-  .loader{
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    position: fixed;
-    top: 0;
-    z-index: 99;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    gap: 15px;
-  }
-  .loader h2{
-    font-size: 2rem;
-    font-weight: 500;
-    
-  }
+#page6{
+  width: 100%;
+  height: 50vh;
+  font-family: rejoy;
+
+}
+.page6-top{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  margin: 0px 20px;
+}
+.info-lists{
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  padding: 0px 45px;
+}
+
+.info-lists .info{
+  width: 150px;
+  height: 100px;
+  display: flex;
+  transition: all .4s ease;
+  cursor: pointer;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.info span{
+  width: 20px;
+  margin-bottom: 15px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid black;
+}
+.info:nth-child(4) span{
+  background-color: black;
+  
+}
+.info p{
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: all .4s ease;
+}
+.info:hover p{
+  opacity: .6;
+}
+/* ----------------------------------------------------page6 end------------------------- */
+/* ----------------------------------------------------page7------------------------- */
+#page7{
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding: 100px;
+  font-family: rejoy;
+}
+#page7 h1{
+  width: 80%;
+  line-height: 1;
+  position: absolute;
+  top: 10px;
+  font-family: 200;
+  font-size: 5vw;
+}
+#page7 button{
+
+position: absolute;
+bottom: 60px;
+  padding: 15px 40px;
+  background-color: black;
+  color: white;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+#page7 button:hover{
+  color: gray;
+} 
+
+#page7 p{
+  position: absolute;
+  bottom: 5px;
+  font-size: 20px;
+  font-weight: 500;
+}
+/* ----------------------------------------------------page7 end------------------------- */
